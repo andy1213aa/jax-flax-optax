@@ -127,6 +127,12 @@ def prepare_tf_data(xs):
 
     return jax.tree_util.tree_map(_prepare, xs)
 
+def train_step(state, batch, learning_rate_fn):
+    """Perform a single training step."""
+
+    def loss_fn(params):
+        """loss function used for training."""
+    
 
 def train_and_evaluate(config, workdir: str):
     """Execute model training and evaluation loop.
@@ -209,6 +215,6 @@ def train_and_evaluate(config, workdir: str):
     step_offset = int(state.step)
     state = jax_utils.replicate(state)
 
-    
+
 
     return 0
